@@ -1,0 +1,68 @@
+Q27: Write a program to print the sum of the first n odd numbers.
+
+#include <stdio.h>
+
+int main() {
+    int n, i, sum = 0;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    // Loop through first n odd numbers
+    for (i = 1; i <= n; i++) {
+        sum += (2 * i - 1);  // odd numbers are 1, 3, 5, ...
+    }
+
+    printf("Sum of first %d odd numbers = %d\n", n, sum);
+
+    return 0;
+}
+
+
+
+Input 1:
+3
+Output 1:
+9
+
+Input 2:
+5
+Output 2:
+25
+
+
+
+Q28: Write a program to print the product of even numbers from 1 to n.
+
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    long long product = 1;  // use long long to handle large results
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    if (n < 2) {
+        printf("No even numbers in the range 1 to %d\n", n);
+    } else {
+        for (i = 2; i <= n; i += 2) {
+            product *= i;   // multiply only even numbers
+        }
+        printf("Product of even numbers from 1 to %d = %lld\n", n, product);
+    }
+
+    return 0;
+}
+
+
+Input 1:
+4
+Output 1:
+8 (2 * 4)
+
+Input 2:
+6
+Output 2:
+48 (2 * 4 * 6)
+
