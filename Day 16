@@ -1,0 +1,78 @@
+Q31: Write a program to take a number as input and print its equivalent binary representation.
+
+#include <stdio.h>
+
+void printBinary(int n) {
+    // Start from the highest bit (31 for 32-bit int)
+    for (int i = 31; i >= 0; i--) {
+        int bit = (n >> i) & 1;   // Shift and mask
+        printf("%d", bit);
+    }
+    printf("\n");
+}
+
+int main() {
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    printf("Binary representation of %d is: ", num);
+    printBinary(num);
+
+    return 0;
+}
+
+
+Input 1:
+10
+Output 1:
+1010
+
+Input 2:
+7
+Output 2:
+111
+
+
+
+Q32: Write a program to check if a number is a palindrome.
+
+#include <stdio.h>
+
+int main() {
+    int num, reversed = 0, remainder, original;
+
+    printf("Enter a number: ");
+    scanf("%d", &num);
+
+    original = num;  // Store the original number
+
+    // Reverse the number
+    while (num != 0) {
+        remainder = num % 10;
+        reversed = reversed * 10 + remainder;
+        num /= 10;
+    }
+
+    // Check if palindrome
+    if (original == reversed) {
+        printf("%d is a palindrome.\n", original);
+    } else {
+        printf("%d is not a palindrome.\n", original);
+    }
+
+    return 0;
+}
+
+
+
+Input 1:
+121
+Output 1:
+Palindrome
+
+Input 2:
+123
+Output 2:
+Not palindrome
+
