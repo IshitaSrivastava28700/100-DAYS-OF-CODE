@@ -1,0 +1,94 @@
+Q69: Find the second largest element in an array.
+
+#include <stdio.h>
+
+int main() {
+    int n;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 2) {
+        printf("Array must have at least two elements.\n");
+        return 0;
+    }
+
+    int arr[n];
+
+    // Input elements
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Initialize largest and second largest
+    int largest = arr[0];
+    int second = -2147483648; // minimum possible integer
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > largest) {
+            second = largest;
+            largest = arr[i];
+        } else if (arr[i] > second && arr[i] != largest) {
+            second = arr[i];
+        }
+    }
+
+    if (second == -2147483648) {
+        printf("No second largest element (all elements are equal).\n");
+    } else {
+        printf("Second largest element = %d\n", second);
+    }
+
+    return 0;
+}
+
+
+
+Input 1:
+5
+10 20 30 40 50
+Output 1:
+40
+
+
+
+Q70: Rotate an array to the right by k positions.
+
+#include <stdio.h>
+
+int main() {
+    int n, k;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    // Input elements
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input k
+    printf("Enter the number of positions to rotate: ");
+    scanf("%d", &k);
+
+    // Normalize k (in case k > n)
+    k = k % n;
+
+    // Rotate using reversal method
+    // Step 1: Reverse entire array
+    for (int i = 0, j = n - 1; i < j; i++, j--) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+
+
+Input 1:
+5
+1 2 3 4 5
+2
+Output 1:
+4 5 1 2 3
+
