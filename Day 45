@@ -1,0 +1,69 @@
+Q89: Count frequency of a given character in a string.
+
+#include <stdio.h>
+
+int main() {
+    char str[200], ch;
+    int i = 0, count = 0;
+
+    printf("Enter a string: ");
+    scanf("%[^\n]", str);   // read string including spaces until newline
+
+    getchar();  // consume newline left in buffer
+
+    printf("Enter the character to find frequency: ");
+    scanf("%c", &ch);
+
+    // Count frequency
+    while (str[i] != '\0') {
+        if (str[i] == ch) {
+            count++;
+        }
+        i++;
+    }
+
+    printf("Frequency of '%c' = %d\n", ch, count);
+
+    return 0;
+}
+
+
+Input 1:
+programming
+g
+Output 1:
+2
+
+
+Q90: Toggle case of each character in a string.
+
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i = 0;
+
+    printf("Enter a string: ");
+    scanf("%[^\n]", str);  // read string including spaces until newline
+
+    // Toggle case
+    while (str[i] != '\0') {
+        if (str[i] >= 'a' && str[i] <= 'z') {
+            str[i] = str[i] - 32;  // lowercase → uppercase
+        } else if (str[i] >= 'A' && str[i] <= 'Z') {
+            str[i] = str[i] + 32;  // uppercase → lowercase
+        }
+        i++;
+    }
+
+    printf("Toggled string: %s\n", str);
+
+    return 0;
+}
+
+
+Input 1:
+Hello
+Output 1:
+hELLO
+
