@@ -1,0 +1,109 @@
+Q67: Insert an element in an array at a given position.
+
+#include <stdio.h>
+
+int main() {
+    int n, pos, element;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n + 1];  // +1 to accommodate the new element
+
+    // Input elements
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input element and position
+    printf("Enter the element to insert: ");
+    scanf("%d", &element);
+
+    printf("Enter the position (1 to %d): ", n + 1);
+    scanf("%d", &pos);
+
+    // Validate position
+    if (pos < 1 || pos > n + 1) {
+        printf("Invalid position!\n");
+        return 0;
+    }
+
+    // Shift elements to the right
+    for (int i = n; i >= pos; i--) {
+        arr[i] = arr[i - 1];
+    }
+
+    // Insert element
+    arr[pos - 1] = element;
+
+    // Print updated array
+    printf("Array after insertion:\n");
+    for (int i = 0; i <= n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+Input 1:
+4
+10 20 30 40
+2 15
+Output 1:
+10 20 15 30 40
+
+
+Q68: Delete an element from an array.
+
+#include <stdio.h>
+
+int main() {
+    int n, pos;
+
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+
+    // Input elements
+    printf("Enter %d elements:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
+    // Input position to delete
+    printf("Enter the position to delete (1 to %d): ", n);
+    scanf("%d", &pos);
+
+    // Validate position
+    if (pos < 1 || pos > n) {
+        printf("Invalid position!\n");
+        return 0;
+    }
+
+    // Shift elements to the left
+    for (int i = pos - 1; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+
+    // Print updated array
+    printf("Array after deletion:\n");
+    for (int i = 0; i < n - 1; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+
+
+Input 1:
+5
+1 2 3 4 5
+2
+Output 1:
+1 2 4 5
+
