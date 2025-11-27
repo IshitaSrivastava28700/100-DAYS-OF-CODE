@@ -1,0 +1,93 @@
+Q97: Print the initials of a name.
+
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i = 0;
+
+    printf("Enter a full name: ");
+    scanf("%[^\n]", str);  // read full name including spaces
+
+    printf("Initials: ");
+
+    // Print first character if it's not a space
+    if (str[0] != ' ') {
+        printf("%c", str[0]);
+    }
+
+    // Traverse the string
+    while (str[i] != '\0') {
+        if (str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0') {
+            printf("%c", str[i + 1]);  // print character after space
+        }
+        i++;
+    }
+
+    printf("\n");
+    return 0;
+}
+
+
+
+Input 1:
+John Doe
+Output 1:
+J.D.
+
+
+Q98: Print initials of a name with the surname displayed in full.
+
+#include <stdio.h>
+
+int main() {
+    char str[200];
+    int i = 0;
+
+    printf("Enter a full name: ");
+    scanf("%[^\n]", str);  // read full name including spaces
+
+    printf("Result: ");
+
+    // Print first initial
+    if (str[0] != ' ') {
+        printf("%c.", str[0]);
+    }
+
+    // Traverse the string
+    while (str[i] != '\0') {
+        // If a space is found and next character exists
+        if (str[i] == ' ' && str[i + 1] != ' ' && str[i + 1] != '\0') {
+            // Check if this is the last word (surname)
+            int j = i + 1;
+            int hasSpace = 0;
+            while (str[j] != '\0') {
+                if (str[j] == ' ') {
+                    hasSpace = 1;
+                    break;
+                }
+                j++;
+            }
+
+            if (hasSpace) {
+                // Print initial for middle names
+                printf("%c.", str[i + 1]);
+            } else {
+                // Print surname in full
+                printf("%s", &str[i + 1]);
+                break;
+            }
+        }
+        i++;
+    }
+
+    printf("\n");
+    return 0;
+}
+
+
+Input 1:
+John David Doe
+Output 1:
+J.D. Doe
+
