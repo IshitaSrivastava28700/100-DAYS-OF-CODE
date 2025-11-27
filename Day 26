@@ -1,0 +1,102 @@
+Q51: Write a program to print the following pattern:
+    5
+   45
+  345
+ 2345
+12345
+
+
+#include <stdio.h>
+
+int main() {
+    int rows = 5;
+
+    // Outer loop for rows
+    for (int i = 1; i <= rows; i++) {
+        // Print leading spaces
+        for (int s = 1; s <= rows - i; s++) {
+            printf(" ");
+        }
+        // Print numbers
+        for (int j = rows - i + 1; j <= rows; j++) {
+            printf("%d", j);
+        }
+        printf("\n");  // move to next line
+    }
+
+    return 0;
+}
+
+
+
+
+Input 1:
+
+Output 1:
+    5
+   45
+  345
+ 2345
+12345
+
+
+Q52: Write a program to print the following pattern:
+
+*
+
+*
+*
+*
+
+*
+*
+*
+*
+*
+
+*
+*
+*
+
+*
+
+
+#include <stdio.h>
+
+int main() {
+    // First block: 1 star
+    printf("*\n\n");
+
+    // Second block: 3 stars
+    for (int i = 0; i < 3; i++) {
+        printf("*\n");
+    }
+    printf("\n");
+
+    // Third block: 5 stars
+    for (int i = 0; i < 5; i++) {
+        printf("*\n");
+    }
+    printf("\n");
+
+    // Fourth block: 3 stars
+    for (int i = 0; i < 3; i++) {
+        printf("*\n");
+    }
+    printf("\n");
+
+    // Fifth block: 1 star
+    printf("*\n");
+
+    return 0;
+}
+
+
+
+
+
+Input 1:
+
+Output 1:
+Pattern with stars spaced irregularly as shown.
+
