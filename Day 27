@@ -1,0 +1,104 @@
+Q53: Write a program to print the following pattern:
+*
+***
+*****
+*******
+*********
+*******
+*****
+***
+*
+
+#include <stdio.h>
+
+int main() {
+    int rows = 5;  // maximum stars in the middle row
+
+    // Upper half (including middle row)
+    for (int i = 1; i <= rows; i++) {
+        // Print stars: formula (2*i - 1)
+        for (int j = 1; j <= (2 * i - 1); j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    // Lower half (excluding middle row)
+    for (int i = rows - 1; i >= 1; i--) {
+        // Print stars: formula (2*i - 1)
+        for (int j = 1; j <= (2 * i - 1); j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+Input 1:
+
+Output 1:
+*
+***
+*****
+*******
+*********
+*******
+*****
+***
+*
+
+
+Q54: Write a program to print the following pattern:
+
+   *
+  ***
+ *****
+*******
+ *****
+  ***
+   *
+
+#include <stdio.h>
+
+int main() {
+    int rows = 4;  // height of the upper half (excluding lower mirror)
+
+    // Upper half (including middle row)
+    for (int i = 1; i <= rows; i++) {
+        // Print leading spaces
+        for (int s = 1; s <= rows - i; s++) {
+            printf(" ");
+        }
+        // Print stars (2*i - 1)
+        for (int j = 1; j <= (2 * i - 1); j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    // Lower half (mirror of upper half excluding middle row)
+    for (int i = rows - 1; i >= 1; i--) {
+        // Print leading spaces
+        for (int s = 1; s <= rows - i; s++) {
+            printf(" ");
+        }
+        // Print stars (2*i - 1)
+        for (int j = 1; j <= (2 * i - 1); j++) {
+            printf("*");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+
+
+Input 1:
+
+Output 1:
+Pattern with layers of stars as shown.
+
