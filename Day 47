@@ -1,0 +1,89 @@
+Q93: Check if two strings are anagrams of each other.
+
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char str1[100], str2[100];
+    int freq[26] = {0};  // frequency array for alphabets
+    int i;
+
+    printf("Enter first string: ");
+    scanf("%[^\n]", str1);
+
+    getchar();  // consume newline left in buffer
+
+    printf("Enter second string: ");
+    scanf("%[^\n]", str2);
+
+    // Count frequency of characters in str1
+    for (i = 0; str1[i] != '\0'; i++) {
+        if (isalpha(str1[i])) {
+            freq[tolower(str1[i]) - 'a']++;
+        }
+    }
+
+    // Subtract frequency of characters in str2
+    for (i = 0; str2[i] != '\0'; i++) {
+        if (isalpha(str
+
+Input 1:
+listen
+silent
+Output 1:
+Anagrams
+
+Input 2:
+hello
+world
+Output 2:
+Not anagrams
+
+
+Q94: Find the longest word in a sentence.
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[200], word[50], longest[50];
+    int i = 0, j = 0, maxLen = 0;
+
+    printf("Enter a sentence: ");
+    scanf("%[^\n]", str);  // read sentence including spaces
+
+    while (str[i] != '\0') {
+        if (str[i] != ' ' && str[i] != '\t') {
+            word[j++] = str[i];  // build current word
+        } else {
+            word[j] = '\0';  // terminate current word
+            if (j > maxLen) {
+                maxLen = j;
+                strcpy(longest, word);
+            }
+            j = 0;  // reset for next word
+        }
+        i++;
+    }
+
+    // Check last word
+    word[j] = '\0';
+    if (j > maxLen) {
+        maxLen = j;
+        strcpy(longest, word);
+    }
+
+    printf("Longest word: %s\n", longest);
+    printf("Length: %d\n", maxLen);
+
+    return 0;
+}
+
+
+Input 1:
+I love programming
+Output 1:
+programming
+
